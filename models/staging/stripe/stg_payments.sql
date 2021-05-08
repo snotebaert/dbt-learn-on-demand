@@ -1,19 +1,12 @@
-with payment as (
+with payments as (
     select
         id,
-        orderid,
-        paymentmethod,
+        orderid as order_id,
+        paymentmethod as payment_method,
         status,
         amount,
         created
     from
         raw.stripe.payment
 )
-select
-    id,
-    orderid as order_id,
-    paymentmethod as payment_method,
-    created as payment_date,
-    amount as amount
-from
-    payment;
+select * from payments
