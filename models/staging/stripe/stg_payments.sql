@@ -7,6 +7,6 @@ with payments as (
         amount / 100 as amount,
         created as create_at
     from
-        raw.stripe.payment
+        {{ source('stripe','payment') }}
 )
 select * from payments
